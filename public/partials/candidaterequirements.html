@@ -1,0 +1,33 @@
+<!--candidate requirements section -->
+<div class ="block2" ng-controller="CandidateReqController">
+<div class="form-group row" >
+  <label for="candidateExperienceSelect" class="col-md-3 col-sm-3 control-label">Candidate Experience</label>
+  <div class="col-md-6 col-sm-6">
+    <select id="candidateExperienceSelect" class="form-control" ng-model="candidatereq.experience" data-parsley-group="block2" data-parsley-required>
+      <option value="">Select experience</option>
+      <option>Beginner (&lt; 2 years)</option>
+      <option>Intermediate (2 - 5 years)</option>
+      <option>Specialist (5-12 years)</option>
+      <option>Senior SME (&gt; 12 years)</option>
+    </select>
+  </div>
+</div>
+<div class="form-group row">
+  <label for="candidateNumberText" class="col-md-3 col-sm-3 control-label">Number of candidates required</label>
+  <div class="col-md-6 col-sm-6">
+    <input type="number" name="candidateNumberText" ng-model="candidatereq.candidatenumber" class="form-control" min="1" placeholder="The number of candidates you are looking for" data-parsley-group="block2" data-parsley-required data-parsley-type="number" />
+  </div>
+</div>
+<div class="form-group row">
+  <label for="otherDetailsText" class="col-md-3 col-sm-3 control-label">Job description</label>
+  <div class="col-md-6 col-sm-6">
+    <textarea id="otherDetailsText" ng-model="candidatereq.candidatedetails" class="form-control" placeholder ="Enter other details" rows="6" data-parsley-group="block2" data-parsley-required></textarea>
+  </div>
+</div>
+<div class="row form-group">
+<div class="col-md-2 col-sm-2">
+  <button class="btn btn-success btn-continue btn-block" data-current-block="2" data-next-block="3" validation-Step section="section">CONTINUE</button>
+</div>
+</div>
+</div>
+            <!--candidate requirements section end-->

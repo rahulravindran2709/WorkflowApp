@@ -1,0 +1,112 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="stylesheets/bootstrap.css" />
+  <link rel="stylesheet" href="stylesheets/bootstrap-cerulean.css" />
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="stylesheets/parsley.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="jobwfApp" >
+  <div ng-controller="NavbarController" ng-cloak>
+   <div class="navbar navbar-default navbar-fixed-top" >
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Job Portal</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="pull-right" id="bs-example-navbar-collapse-1">       
+        <div class="dropdown positionRelative">
+          <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Abhishek Goyal <span class="caret"></span></a>
+          <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" data-src="holder.js/64x64" alt="No profile image">
+              </a>
+              <div class="media-body">
+                <address>
+                  <strong>Abhishek Goyal</strong><br>
+                  <a href="mailto:#">first.last@example.com</a>
+                </address>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="pull-left"><button class="btn btn-default">Settings</button></div>
+            <div class="pull-right"><button class="btn btn-default">Sign Out</button></div>
+          </div>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </div><!--navigation section end -->
+</div>
+<!--Content starts here-->
+<div class ="container">
+ <form id="jobform" novalidate>
+  <div class="row"><!-- form caption-->
+    <div class="col-md-4">
+      <h1>New Job Requirement</h1>
+      <small class="hidden-xs">Create a new job requirement</small>
+    </div>
+    <div class="col-md-4 col-md-offset-4  positionRelative btn-height">
+      <button class="btn btn-primary btn-lg btn-block btnVrtFix" type="submit">Upload</button>
+    </div>
+  </div><!-- form caption end-->
+  <div class="alert alert-success alert-dismissible hidden" role="alert"><!--Alert message for success full form submission-->
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <strong>Great!</strong> You are all set.
+  </div><!--Alert message for success full form submission end-->
+  <div class ="row voffset4" ng-controller="AccordionController"><!--Accordion content -->
+    <div class="panel-group" id="accordion1">
+      <div ng-class="{'panel':true, 'panel-danger':section.isValid=='false','panel-success':section.isValid=='true','panel-primary':section.isValid=='notValidated'}" ng-repeat="section in sections">
+        <div class="panel-heading cursor row" data-parent="#accordion1" href="#section{{$index+1}}">
+          <div accordion-title section="section" index="$index+1">
+         </div>
+       </div>
+       <div id="section{{$index+1}}" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ng-include src="section.partial"></ng-include>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!--Accordion content end-->
+</form>
+</div> <!--Content ends here-->
+<footer class="bottom">
+  <div class="container hidden-xs">
+    <p class="navbar-text pull-left">site design by <a href="#">Web designers</a></p>
+    <p class="navbar-text pull-center">Job Portal ,sister concern of  <a href="#">Careers Inc</a> Copyright 2014 All Right Reserved.</p>
+    <a href="#" class="navbar-btn btn-danger btn pull-right">Job Portal</a>
+  </div>
+  <div class="container visible-xs">
+    <p class="navbar-text pull-left">Job Portal Inc</p>
+    <a href="http://www.jobportal.com" class="navbar-btn btn-danger btn pull-right">Job Portal</a>
+  </div>
+</footer><!--footer ends here-->
+<script src="javascripts/vendor/angular/angular.js"></script>
+<script src="javascripts/vendor/angular/angular-route.js"></script>
+<script src="javascripts/vendor/jquery/jquery-1.11.1.js"></script>
+<script src="javascripts/vendor/bootstrap/bootstrap.js"></script>
+<script src="javascripts/vendor/bootstrap/tab.js"></script>
+<script src="javascripts/vendor/parsley/parsley.js"></script>
+<script src="javascripts/vendor/holder/holder.js"></script>
+<script src="javascripts/angular/app.js"></script>
+<script src="javascripts/angular/controllers/navbarcontroller.js"></script>
+<script src="javascripts/angular/controllers/accordioncontroller.js"></script>
+<script src="javascripts/angular/controllers/jobdesccontroller.js"></script>
+<script src="javascripts/angular/controllers/candidatereqcontroller.js"></script>
+<script src="javascripts/angular/controllers/interviewprocesscontroller.js"></script>
+<script src="javascripts/angular/controllers/sharingdetailscontroller.js"></script>
+<script src="javascripts/angular/directives/validationstepdirective.js"></script>
+<script src="javascripts/angular/directives/panelheaderdirective.js"></script>
+</body>
+</html>

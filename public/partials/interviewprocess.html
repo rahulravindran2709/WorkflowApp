@@ -1,0 +1,67 @@
+<!--Interview process section -->
+<!-- Nav tabs -->
+<div class="col-md-12 block3" id="mySkinnedTabWrapper" ng-controller="InterviewProcessController">
+  <ul class="nav nav-tabs" role="tablist">
+    <li ng-repeat="tabitem in tabs"><a href="#interviewtab{{$index+1}}" role="tab" data-toggle="tab" ng-class="{'active':tabitem.isActive}" ng-click="activateTab($index)" ng-bind="tabitem.interviewDetails.title"></a></li>
+    <li><button class="btn btn-primary" ng-click="addTab()"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Interview</button>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- Repeatable tab pane -->
+    <div ng-class="{'tab-pane':true, 'bg-info':true,active:tabitem.isActive}" id="interview{{$index+1}}" ng-repeat="tabitem in tabs">
+      <div class = "row">
+        <!-- Interview details start-->
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <div class="form-group col-md-12">
+          <h3>INTERVIEW DETAILS</h3>
+        </div>
+          <div class="form-group col-md-12">
+            <label for="interviewTitle1Text" class="col-md-12 col-sm-12 control-label" >Title</label>
+            <div class="col-md-12">
+              <input type ="text" id="interviewTitle1Text" class="form-control" ng-model="tabitem.interviewDetails.title" placeholder ="Give a title" rows="6"  data-parsley-group="block3" data-parsley-required></textarea>
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <label for="interviewDescription1Text" class="col-md-4 col-sm-4 control-label" >Description</label>
+            <div class="col-md-12">
+              <textarea id="interviewDescription1Text" class="form-control" ng-model="tabitem.interviewDetails.description" placeholder ="Brief description" rows="6" data-parsley-group="block3" data-parsley-required></textarea>
+            </div>
+          </div>
+        </div>
+        <!-- Interview details end-->
+        <!-- Evaluation details section start -->
+        <div class="col-md-6">
+          <div class="form-group col-md-12">
+          <h3>EVALUATION DETAILS</h3>
+        </div>
+          <div class="form-group col-md-12 col-sm-12 col-xs-12">
+            <label for="passingScoreText" class="col-md-12 col-sm-12 control-label" ng-model="tabitem.evaluationDetails.score">Passing score</label>
+            <div class="col-md-5 col-sm-5">
+              <select id="passingScoreText" class="form-control" ng-model="interview.passingscore" placeholder ="Select Passing score" rows="6"  data-parsley-group="block3" data-parsley-required>
+                <option value="">Select</option>
+                <option ng-repeat="score in scores">{{score}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group col-md-12 col-sm-12 col-xs-12">
+            <label for="Evaluators1Text" class="col-md-4 col-sm-4 control-label">Evaluators</label>
+            <div class="col-md-12">
+              <textarea id="Evaluators1Text" class="form-control" placeholder ="Enter names/email addresses of evaluators" rows="6" nglist=", " data-parsley-group="block3"></textarea>
+            </div>
+          </div>
+        </div>
+        <!--Evaluation details end -->
+      </div>
+      <div class = "row padding2">
+        <div class="form-group col-md-2 col-sm-2">
+          <button class="btn btn-success btn-continue btn-block" data-current-block="3" data-next-block="4" validation-Step section="section">CONTINUE</button>
+        </div>
+      </div>
+    </div>
+    <!-- Repeatable tab pane end-->
+  </div>
+  <!--Tab content end -->
+</div>
+            <!--Interview process section end-->

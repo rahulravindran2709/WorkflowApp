@@ -1,0 +1,27 @@
+ <!--job description form section-->
+ <div class ="block1"  ng-controller="JobDescController">
+  <div class="form-group row">
+    <label for="jobProfileSelect" class="col-md-3 col-sm-3 control-label">Job profile</label>
+    <div class="col-md-4 col-sm-4">
+      <select id="jobProfileSelect" class="form-control"  ng-model="jobRequirement.jobdescblock.profile" data-parsley-group="block1" data-parsley-required>
+        <option value="">Select job profile</option>
+        <option>Developer</option>
+        <option>Tester</option>
+        <option>Manager</option>
+        <option>Analyst</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="jobDescriptionText" class="col-md-3 col-sm-3 control-label" >Job description</label>
+    <div class="col-md-7 col-sm-7">
+      <textarea id="jobDescriptionText" ng-model="jobdescblock.description" class="form-control" placeholder ="Enter details of the job here" rows="6" data-parsley-group="block1" data-parsley-required></textarea>
+    </div>
+  </div>
+  <div class="form-group row">
+  <div class="col-md-2 col-sm-2">
+    <button class="btn btn-success btn-continue btn-block" data-current-block="1" data-next-block="2" validation-Step section="section">CONTINUE</button>
+  </div>
+</div>
+  <!--job description form section end-->
+</div>

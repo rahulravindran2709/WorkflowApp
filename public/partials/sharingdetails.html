@@ -1,0 +1,91 @@
+<!-- Sharing details section-->
+<div ng-controller="SharingDetailsController" class="row">
+  <div class="col-md-12">
+    <div class="row form-group">
+      <div class = "col-md-4 col-sm-4 padding2">
+      <label for="shareLinkText" class="control-label" required>Link to share (Only accessible by collaborators)</label>
+    </div>
+      <div class="col-md-8 input-group">
+        <input type="text" id="shareLinkText" class="form-control"  data-parsley-type="url" /><span class="glyphicon glyphicon-link input-group-addon"></span>
+      </div>
+    </div>
+    <!-- Invite people block -->
+    <div class="bg-info row padding2">
+      <label for="inviteText" class="col-md-10 control-label">Invite people</label>
+      <div class="col-md-4">
+        <textarea type="text" id="inviteText" ng-model="newContributor.names" ng-list=", " class="form-control" placeholder="Enter names or email addresses" ></textarea>
+      </div>
+      <div class="col-md-3">
+        <div class="dropdown">
+         <a class="dropdown-toggle cursor"   id="dropdownMenu1" data-toggle="dropdown">
+          {{newContributor.role}}
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation" ng-repeat="role in roles" ng-click="selectRole(role)"><a role="menuitem" tabindex="-1" href="#">{{role}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="dropdown">
+       <a class="dropdown-toggle cursor"  id="dropdownMenu1" data-toggle="dropdown">
+        {{newContributor.permission}}
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation" ng-repeat="permission in permissions" ng-click="selectPermission(permission)"><a role="menuitem" tabindex="-1" href="#">{{permission}}</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary btn-block" ng-click="addContributor(newContributor)">Add</button>
+  </div>
+</div>
+<!-- Invite people block end-->
+<div class="row padding2">
+   <div class = "col-md-12 col-sm-12">
+  <h4>To be shared with</h4>
+  <hr>
+</div>
+  <div class="padding2" ng-repeat="person in sharedpeople">
+    <div class="row" >
+      <div class ="col-md-3 col-sm-3">
+        <span><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<span >{{person.names.join(',')}}</span></span>
+      </div>
+      <div class="col-md-offset-1 col-md-2">
+        <div class="dropdown">
+         <a class="dropdown-toggle cursor"  id="dropdownMenu1" data-toggle="dropdown">
+          {{person.role}}
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation" ng-repeat="role in roles" ng-click="updateRoles(role,$parent.$index)"><a role="menuitem" tabindex="-1" href="#">{{role}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="dropdown">
+       <a class="dropdown-toggle cursor"  id="dropdownMenu1" data-toggle="dropdown">
+        {{person.permission}}
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation" ng-repeat="permission in permissions" ng-click="updatePermission(permission,$parent.$index)"><a role="menuitem" tabindex="-1" href="#">{{permission}}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <span class="glyphicon glyphicon-remove cursor" ng-click="deleteContributor($index)"></span>
+  </div>
+</div>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-md-2 col-sm-2">
+  <button class="btn btn-success btn-continue btn-block" data-current-block="4" validation-Step section="section">FINISH</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sharing details section-->
